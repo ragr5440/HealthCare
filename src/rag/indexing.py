@@ -1,5 +1,4 @@
 from pathlib import Path
-
 import chromadb
 from sentence_transformers import SentenceTransformer
 
@@ -9,23 +8,14 @@ from chunking import (
     build_sentence_chunks,
 )
 
-
 MODEL_NAME = "all-MiniLM-L6-v2"
 
-
 def create_collection(client, name):
-    """
-    Delete existing collection if present
-    and recreate cleanly.
-    """
-
     try:
         client.delete_collection(name)
     except Exception:
         pass
-
     return client.create_collection(name=name)
-
 
 def add_chunks_to_collection(
     collection,
@@ -58,7 +48,6 @@ def add_chunks_to_collection(
         metadatas=metadatas,
     )
 
-
 def main():
 
     print("Loading documents...")
@@ -67,7 +56,6 @@ def main():
     fixed_chunks = build_fixed_chunks(
         documents
     )
-
     sentence_chunks = (
         build_sentence_chunks(
             documents
@@ -146,7 +134,6 @@ def main():
     print(
         "- clinic_sentence_chunks"
     )
-
 
 if __name__ == "__main__":
     main()
