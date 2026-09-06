@@ -1,5 +1,4 @@
 from pathlib import Path
-
 import chromadb
 from sentence_transformers import SentenceTransformer
 
@@ -9,6 +8,7 @@ MODEL_NAME = "all-MiniLM-L6-v2"
 
 CHROMA_PATH = PROJECT_ROOT / "chroma_db"
 
+SIMILARITY_THRESHOLD = 1.4
 
 def get_collection(collection_name):
     """
@@ -22,7 +22,6 @@ def get_collection(collection_name):
     return client.get_collection(
         name=collection_name
     )
-
 
 def retrieve(
     query: str,
@@ -63,9 +62,7 @@ def retrieve(
                     results["ids"][0][i],
 
                 "document_id":
-                    results["metadatas"][0][i][
-                        "document_id"
-                    ],
+                    results["metadatas"][0][i]["document_id"],
 
                 "distance":
                     results["distances"][0][i],
@@ -75,13 +72,23 @@ def retrieve(
             }
         )
 
-    return formatted_results
+    if not formatted_results:
+        return []
 
+    best_result = formatted_results[0]
+
+    if best_result["distance"] > SIMILARITY_THRESHOLD:
+        return {
+        "in_scope": False,
+        "results": []
+        }
+
+    return {
+        "in_scope": True,
+        "results": formatted_results
+    }
 
 def print_results(results):
-    """
-    Pretty-print retrieval output.
-    """
 
     for idx, result in enumerate(
         results,
@@ -114,11 +121,10 @@ def print_results(results):
             "\n" + "=" * 60
         )
 
-
 def main():
 
     query = (
-        "When will my label results be available?"
+        "How do I cancel my appointment?"
     )
 
     print(
@@ -132,8 +138,13 @@ def main():
         top_k=3,
     )
 
-    print_results(results)
+    if not results["in_scope"]:
+        print(
+            "\nNo relevant clinic policy found."
+        )
+        return
 
+    print_results(results["results"])
 
 if __name__ == "__main__":
     main()
