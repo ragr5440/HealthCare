@@ -1,0 +1,101 @@
+Evaluating: clinic_fixed_chunks
+--------------------------------------------------
+
+Query: How do I cancel my appointment?
+Expected: appointment_cancellation
+Retrieved documents: ['appointment_booking', 'appointment_cancellation', 'appointment_rescheduling']
+Relevant document retrieved: True
+
+Query: Can I change my appointment time?
+Expected: appointment_rescheduling
+Retrieved documents: ['appointment_booking', 'appointment_cancellation', 'appointment_rescheduling']
+Relevant document retrieved: True
+
+Query: How do insurance claims work?
+Expected: insurance_claims
+Retrieved documents: ['insurance_claims', 'payment_refunds']
+Relevant document retrieved: True
+
+Query: Can I consult a doctor online?
+Expected: telemedicine_policy
+Retrieved documents: ['prescription_refills', 'telemedicine_policy']
+Relevant document retrieved: True
+
+Query: When will lab results be available?
+Expected: lab_turnaround
+Retrieved documents: ['lab_turnaround', 'patient_support']
+Relevant document retrieved: True
+
+Query: Will I get my money back after cancelling?
+Expected: payment_refunds
+Retrieved documents: ['appointment_cancellation', 'payment_refunds']
+Relevant document retrieved: True
+
+Query: Is there a lower fee for a return visit?
+Expected: follow_up_discounts
+Retrieved documents: ['consultation_fees', 'follow_up_discounts', 'payment_refunds']
+Relevant document retrieved: True
+
+Query: Who can see my medical information?
+Expected: data_privacy
+Retrieved documents: ['data_privacy', 'telemedicine_policy']
+Relevant document retrieved: True
+
+Precision: 42.11%
+Recall: 100.00%
+
+Evaluating: clinic_sentence_chunks
+--------------------------------------------------
+
+Query: How do I cancel my appointment?
+Expected: appointment_cancellation
+Retrieved documents: ['appointment_booking', 'appointment_cancellation', 'appointment_rescheduling']
+Relevant document retrieved: True
+
+Query: Can I change my appointment time?
+Expected: appointment_rescheduling
+Retrieved documents: ['appointment_cancellation', 'appointment_rescheduling']
+Relevant document retrieved: True
+
+Query: How do insurance claims work?
+Expected: insurance_claims
+Retrieved documents: ['consultation_fees', 'insurance_claims']
+Relevant document retrieved: True
+
+Query: Can I consult a doctor online?
+Expected: telemedicine_policy
+Retrieved documents: ['lab_turnaround', 'prescription_refills', 'telemedicine_policy']
+Relevant document retrieved: True
+
+Query: When will lab results be available?
+Expected: lab_turnaround
+Retrieved documents: ['lab_turnaround', 'patient_support']
+Relevant document retrieved: True
+
+Query: Will I get my money back after cancelling?
+Expected: payment_refunds
+Retrieved documents: ['appointment_cancellation', 'payment_refunds']
+Relevant document retrieved: True
+
+Query: Is there a lower fee for a return visit?
+Expected: follow_up_discounts
+Retrieved documents: ['consultation_fees', 'follow_up_discounts', 'payment_refunds']
+Relevant document retrieved: True
+
+Query: Who can see my medical information?
+Expected: data_privacy
+Retrieved documents: ['data_privacy', 'lab_turnaround']
+Relevant document retrieved: True
+
+Precision: 42.11%
+Recall: 100.00%
+
+SUMMARY
+==================================================
+Fixed Chunking
+Precision: 42.11%
+Recall: 100.00%
+
+Sentence Chunking
+Precision: 42.11%
+Recall: 100.00%

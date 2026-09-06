@@ -6,6 +6,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 MODEL_NAME = "all-MiniLM-L6-v2"
 
+MODEL = SentenceTransformer(MODEL_NAME)
+
 CHROMA_PATH = PROJECT_ROOT / "chroma_db"
 
 SIMILARITY_THRESHOLD = 1.4
@@ -31,12 +33,7 @@ def retrieve(
     """
     Retrieve top matching chunks.
     """
-
-    model = SentenceTransformer(
-        MODEL_NAME
-    )
-
-    query_embedding = model.encode(
+    query_embedding = MODEL.encode(
         query
     ).tolist()
 
