@@ -1,9 +1,7 @@
 from pathlib import Path
 import re
 
-
 KNOWLEDGE_BASE_PATH = "knowledgebase"
-
 
 def load_documents():
     """
