@@ -1,0 +1,126 @@
+Observation: Fixed-size chunking occasionally returned chunks that ended mid-sentence, resulting in truncated outputs. Sentence-based chunking preserved sentence boundaries and produced more readable final responses.
+
+
+1. Output With Fixed Chunking
+
+# Appointment Cancellation Policy
+
+Patients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted through the website, mobile app, or support team. Latecancellations may not qualify for a full ref
+
+
+
+
+
+2. Output with Sentence Chunking.
+
+Loading weights: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 103/103 [00:00<00:00, 1145.14it/s]
+╭─────────────────────────────────────────────────────────────────────── 🚀 Crew Execution Started ───────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                         │
+│  Crew Execution Started                                                                                                                                                 │
+│  Name: crew                                                                                                                                                             │
+│  ID: fde45915-c434-480d-8cc1-3da4140b7628                                                                                                                               │
+│                                                                                                                                                                         │
+│                                                                                                                                                                         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────────── 📋 Task Started ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                         │
+│  Task Started                                                                                                                                                           │
+│  Name: Answer this clinic policy question: 'How do I cancel my appointment?' You must use the Clinic Policy Search tool. Do not answer from your own knowledge.         │
+│  ID: 75a41bde-9d91-4b41-9593-50feb7f51f8b                                                                                                                               │
+│                                                                                                                                                                         │
+│                                                                                                                                                                         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭─────────────────────────────────────────────────────────────────────────── 🤖 Agent Started ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                         │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                                   │
+│                                                                                                                                                                         │
+│  Task: Answer this clinic policy question: 'How do I cancel my appointment?' You must use the Clinic Policy Search tool. Do not answer from your own knowledge.         │
+│                                                                                                                                                                         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────── 🔧 Tool Execution Started (#1) ─────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                         │
+│  Tool: clinic_policy_search                                                                                                                                             │
+│  Args: {"query": "Answer this clinic policy question: 'How do I cancel my appointment?' You must use the Clinic Policy Search tool. Do not answer from your own         │
+│  knowledge."}                                                                                                                                                           │
+│                                                                                                                                                                         │
+│                                                                                                                                                                         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭─────────────────────────────────────────────────────────────────── ✅ Tool Execution Completed (#1) ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                         │
+│  Tool Completed                                                                                                                                                         │
+│  Tool: clinic_policy_search                                                                                                                                             │
+│  Output: {"found": true, "results": [{"chunk_id": "appointment_cancellation_chunk_1", "document_id": "appointment_cancellation", "distance": 0.4739159643650055,        │
+│  "text": "# Appointment Cancellation Policy\n\nPatients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted      │
+│  through the website, mobile app, or support team."}, {"chunk_id": "appointment_rescheduling_chunk_1", "document_id": "appointment_rescheduling", "distance":           │
+│  0.7435703873634338, "text": "# Appointment Rescheduling Policy\n\nPatients may request a new appointment time if they cannot attend the original booking.              │
+│  Rescheduling depends on doctor availability."}, {"chunk_id": "appointment_booking_chunk_1", "document_id": "appointment_booking", "distance": 0.9010916352272034,      │
+│  "text": "# Appointment Booking Policy\n\nPatients can book appointments through the clinic website, mobile app, or support team. Appointment slots are available       │
+│  based on doctor schedules."}]}                                                                                                                                         │
+│                                                                                                                                                                         │
+│                                                                                                                                                                         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────────── Tool Output ──────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                         │
+│  {"found": true, "results": [{"chunk_id": "appointment_cancellation_chunk_1", "document_id": "appointment_cancellation", "distance": 0.4739159643650055, "text": "#     │
+│  Appointment Cancellation Policy\n\nPatients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted through the     │
+│  website, mobile app, or support team."}, {"chunk_id": "appointment_rescheduling_chunk_1", "document_id": "appointment_rescheduling", "distance": 0.7435703873634338,   │
+│  "text": "# Appointment Rescheduling Policy\n\nPatients may request a new appointment time if they cannot attend the original booking. Rescheduling depends on doctor   │
+│  availability."}, {"chunk_id": "appointment_booking_chunk_1", "document_id": "appointment_booking", "distance": 0.9010916352272034, "text": "# Appointment Booking      │
+│  Policy\n\nPatients can book appointments through the clinic website, mobile app, or support team. Appointment slots are available based on doctor schedules."}]}       │
+│                                                                                                                                                                         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭───────────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                         │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                                   │
+│                                                                                                                                                                         │
+│  Final Answer:                                                                                                                                                          │
+│  # Appointment Cancellation Policy                                                                                                                                      │
+│                                                                                                                                                                         │
+│  Patients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted through the website, mobile app, or support team.  │
+│                                                                                                                                                                         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────── 📋 Task Completion ───────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                         │
+│  Task Completed                                                                                                                                                         │
+│  Name: Answer this clinic policy question: 'How do I cancel my appointment?' You must use the Clinic Policy Search tool. Do not answer from your own knowledge.         │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                                   │
+│                                                                                                                                                                         │
+│                                                                                                                                                                         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────────── Crew Completion ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                         │
+│  Crew Execution Completed                                                                                                                                               │
+│  Name: crew                                                                                                                                                             │
+│  ID: fde45915-c434-480d-8cc1-3da4140b7628                                                                                                                               │
+│  Final Output: # Appointment Cancellation Policy                                                                                                                        │
+│                                                                                                                                                                         │
+│  Patients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted through the website, mobile app, or support team.  │
+│                                                                                                                                                                         │
+│                                                                                                                                                                         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────────── Tracing Status ─────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                         │
+│  Info: Tracing is disabled.                                                                                                                                             │
+│                                                                                                                                                                         │
+│  To enable tracing, do any one of these:                                                                                                                                │
+│  • Set tracing=True in your Crew/Flow code                                                                                                                              │
+│  • Set CREWAI_TRACING_ENABLED=true in your project's .env file                                                                                                          │
+│  • Run: crewai traces enable                                                                                                                                            │
+│                                                                                                                                                                         │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+FINAL RESULT
+============================================================
+# Appointment Cancellation Policy
+
+Patients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted through the website, mobile app, or support team.

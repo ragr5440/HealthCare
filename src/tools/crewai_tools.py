@@ -19,7 +19,7 @@ def clinic_policy_search(query: str) -> str:
 
     response = retrieve(
         query=query,
-        collection_name="clinic_fixed_chunks",
+        collection_name="clinic_sentence_chunks",
         top_k=3,
     )
 

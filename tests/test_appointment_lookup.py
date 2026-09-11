@@ -1,4 +1,4 @@
-from src.Tool.appointment_lookup import (
+from src.tools.appointment_lookup import (
     lookup_appointment
 )
 def test_valid_id():

@@ -2,7 +2,7 @@ from pathlib import Path
 import chromadb
 from sentence_transformers import SentenceTransformer
 
-from chunking import (
+from src.rag.chunking import (
     load_documents,
     build_fixed_chunks,
     build_sentence_chunks,
