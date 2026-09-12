@@ -3,6 +3,8 @@ from urllib import request
 from fastapi import FastAPI
 from fastapi import WebSocket
 from fastapi import WebSocketDisconnect
+import time
+from datetime import datetime
 
 from src.api.models import (
     AskRequest,
@@ -10,6 +12,9 @@ from src.api.models import (
     AddDocumentRequest,
     AddDocumentResponse
 )
+
+from src.api.logger import log_request
+from src.governance.pii_guardrails import mask_contact_numbers
 
 app = FastAPI(
     title="Practo Support Agent"
@@ -28,13 +33,19 @@ def root():
 def ask_question(
     request: AskRequest
 ):
-    """
-    Sends query through
-    guardrails -> crew -> output validator
-    """
+    start_time = time.time()
 
-    answer = (
-        "Demo answer"
+    masked_query = mask_contact_numbers(request.query)
+
+
+    answer = ( "Demo answer")
+
+    latency_ms = (time.time() - start_time) * 1000
+
+    log_request(
+        query=masked_query,
+        response_status="success",
+        latency_ms=latency_ms
     )
 
     return AskResponse(

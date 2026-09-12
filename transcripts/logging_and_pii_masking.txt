@@ -1,0 +1,8 @@
+Input query in /ask endpoint
+{
+  "query": "My phone no. is 1122334455",
+  "session_id": "test-107"
+}
+
+Output (logging in app_logs.jsonl file)
+{"trace_id": "a6df9aa9-1f5a-44bf-920e-b39cbd030902", "timestamp": "2026-09-12T17:22:19.336480", "query": "My phone no. is XXXXXXXX55", "response_status": "success", "latency_ms": 0.0}

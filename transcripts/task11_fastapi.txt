@@ -1,3 +1,10 @@
+Input for POST /ask
+{ "query": "What is the cancellation policy?", "session_id": "test-001" }
+
+Output
+{ "answer": "Demo answer", "grounded": true, "sources": ["knowledge_base"] }
+
+
 Input for POST /add-document
 {
   "doc_id": "policy_13",
