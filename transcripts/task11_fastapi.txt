@@ -1,0 +1,10 @@
+Input for POST /add-document
+{
+  "doc_id": "policy_13",
+  "text": "Patients may request virtual consultations for non-emergency conditions."
+}
+
+Output
+{
+  "message": "Document policy_13 added"
+}

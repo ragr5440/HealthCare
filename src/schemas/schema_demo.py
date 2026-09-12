@@ -51,8 +51,11 @@ def main():
     try:
 
         CrewResponse(
-            **invalid_response
-        )
+            answer=final_answer,
+            source="crew",
+            confidence=0.95,
+            requires_escalation=False,
+        )   
 
     except ValidationError as e:
 

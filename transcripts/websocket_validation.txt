@@ -1,0 +1,19 @@
+# WebSocket Test
+
+Connection URI
+ws://127.0.0.1:8000/chat
+
+Message Sent
+Hello
+
+Response Received
+Received: Hello
+
+Disconnect Test
+Client closed connection.
+
+Server Output
+Client disconnected.
+
+Result
+PASS
