@@ -1,0 +1,2 @@
+# Second Opinion Process
+Patients may request a second opinion from another qualified specialist within the network before proceeding with a treatment plan. Medical records, test results, and consultation notes may be shared with the second specialist after obtaining the required patient consent. Appointment availability depends on the specialist's schedule. Standard consultation fees apply unless covered by an insurance or promotional program.

@@ -1,0 +1,2 @@
+# Home Visit Eligibility Policy
+Home visits may be available for patients with limited mobility, chronic medical conditions, post-surgical recovery needs, or other circumstances that make travel difficult. Eligibility is assessed based on the patient's condition, doctor availability, and service coverage area. Home-visit requests should be submitted at least 24 hours in advance whenever possible. Additional service charges may apply depending on location and clinical requirements.

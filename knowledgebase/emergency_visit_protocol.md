@@ -1,0 +1,2 @@
+# Emergency Visit Protocol
+Patients experiencing severe chest pain, difficulty breathing, uncontrolled bleeding, loss of consciousness, or other life-threatening symptoms should immediately contact emergency medical services or visit the nearest emergency department. Clinic appointments and teleconsultations are not intended to replace emergency care. Patients should provide accurate information about their symptoms to help staff recommend the most appropriate level of care. Follow-up appointments may be scheduled after emergency treatment when clinically appropriate.
