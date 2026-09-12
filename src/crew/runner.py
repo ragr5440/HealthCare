@@ -1,15 +1,15 @@
 import os
 
-# These must be set before importing CrewAI.
 os.environ["CREWAI_DISABLE_TELEMETRY"] = "true"
 os.environ["OTEL_SDK_DISABLED"] = "true"
 
-from crewai import Crew, Process, Task
+from crewai import Crew, Task, Process
 
 from src.crew.agents import create_agents
 
-
-def main():
+def run_policy_query(
+    query: str,
+):
 
     agents = create_agents()
 
@@ -17,14 +17,10 @@ def main():
         "retrieval_agent"
     ]
 
-    lookup_agent = agents[
-        "lookup_agent"
-    ]
-
     retrieval_task = Task(
         description=(
-            "Answer this clinic policy question: "
-            "'How do I cancel my appointment?' "
+            f"Answer this clinic policy question: "
+            f"'{query}' "
             "You must use the Clinic Policy Search tool. "
             "Do not answer from your own knowledge."
         ),
@@ -35,32 +31,49 @@ def main():
         agent=retrieval_agent,
     )
 
+    crew = Crew(
+        agents=[retrieval_agent],
+        tasks=[retrieval_task],
+        process=Process.sequential,
+        verbose=False,
+    )
+
+    result = crew.kickoff()
+
+    return str(result)
+
+
+def run_lookup_query(
+    query: str,
+):
+
+    agents = create_agents()
+
+    lookup_agent = agents[
+        "lookup_agent"
+    ]
 
     lookup_task = Task(
         description=(
-            "Find the appointment record for this query: "
-            "'What is the current status of APT-0015?' "
+            f"Find the appointment record for this query: "
+            f"'{query}' "
             "You must use the Appointment Lookup tool. "
             "Do not answer from your own knowledge."
         ),
         expected_output=(
-            "A short answer based only on the appointment record lookup result."
+            "A short answer based only on the "
+            "appointment record lookup result."
         ),
         agent=lookup_agent,
     )
 
     crew = Crew(
-        agents=[retrieval_agent, lookup_agent],
-        tasks=[retrieval_task, lookup_task],
+        agents=[lookup_agent],
+        tasks=[lookup_task],
         process=Process.sequential,
-        verbose=True,
+        verbose=False,
     )
 
     result = crew.kickoff()
 
-    print("\nFINAL RESULT")
-    print("=" * 60)
-    print(result)
-
-if __name__ == "__main__":
-    main()
+    return str(result)

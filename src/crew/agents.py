@@ -1,4 +1,4 @@
-from crewai import Agent
+from crewai import Agent, Process
 
 from src.crew.mock_llm import MockLLM
 from src.tools.crewai_tools import (

@@ -1,0 +1,545 @@
+Input following 15 queries. 
+ {
+        "id": "Q1",
+        "query": "What is the appointment booking policy?",
+        "type": "policy",
+    },
+    {
+        "id": "Q2",
+        "query": "What is the cancellation policy?",
+        "type": "policy",
+    },
+    {
+        "id": "Q3",
+        "query": "What are the cardiology consultation fees?",
+        "type": "policy",
+    },
+    {
+        "id": "Q4",
+        "query": "How does the insurance claim process work?",
+        "type": "policy",
+    },
+    {
+        "id": "Q5",
+        "query": "What is the prescription refill policy?",
+        "type": "policy",
+    },
+    {
+        "id": "Q6",
+        "query": "How long do lab results take?",
+        "type": "policy",
+    },
+    {
+        "id": "Q7",
+        "query": "Who is eligible for telemedicine?",
+        "type": "policy",
+    },
+    {
+        "id": "Q8",
+        "query": "What is the emergency visit protocol?",
+        "type": "policy",
+    },
+    {
+        "id": "Q9",
+        "query": "How is patient data protected?",
+        "type": "policy",
+    },
+    {
+        "id": "Q10",
+        "query": "What follow-up discounts are available?",
+        "type": "policy",
+    },
+    {
+        "id": "Q11",
+        "query": "How do I request a second opinion?",
+        "type": "policy",
+    },
+    {
+        "id": "Q12",
+        "query": "Who qualifies for home visits?",
+        "type": "policy",
+    },
+    {
+        "id": "Q13",
+        "query": "Check appointment status for APT-0015",
+        "type": "appointment",
+    },
+    {
+        "id": "Q14",
+        "query": "Who won the FIFA World Cup 2022?",
+        "type": "oos",
+    },
+    {
+        "id": "Q15",
+        "query": "Explain quantum entanglement.",
+        "type": "oos",
+    }
+
+
+Output
+
+🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Task: Answer this clinic policy question: 'What is the appointment booking policy?' You must use the Clinic Policy Search tool. Do not answer from your     │
+│  own knowledge.                                                                                                                                              │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "results": [{"chunk_id": "appointment_booking_chunk_1", "document_id": "appointment_booking", "distance": 0.45667940378189087, "text": "#   │
+│  Appointment Booking Policy\n\nPatients can book appointments through the clinic website, mobile app, or support team. Appointment slots are available       │
+│  based on doctor schedules."}, {"chunk_id": "appointment_rescheduling_chunk_1", "document_id": "appointment_rescheduling", "distance": 0.6056480407714844,   │
+│  "text": "# Appointment Rescheduling Policy\n\nPatients may request a new appointment time if they cannot attend the original booking. Rescheduling depends  │
+│  on doctor availability."}, {"chunk_id": "second_opinion_process_chunk_2", "document_id": "second_opinion_process", "distance": 0.7486850023269653, "text":  │
+│  "Appointment availability depends on the specialist's schedule. Standard consultation fees apply unless covered by an insurance or promotional              │
+│  program."}]}                                                                                                                                                │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  # Appointment Booking Policy                                                                                                                                │
+│                                                                                                                                                              │
+│  Patients can book appointments through the clinic website, mobile app, or support team. Appointment slots are available based on doctor schedules.          │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Task: Answer this clinic policy question: 'What is the cancellation policy?' You must use the Clinic Policy Search tool. Do not answer from your own        │
+│  knowledge.                                                                                                                                                  │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "results": [{"chunk_id": "appointment_cancellation_chunk_1", "document_id": "appointment_cancellation", "distance": 0.6520476341247559,     │
+│  "text": "# Appointment Cancellation Policy\n\nPatients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be     │
+│  submitted through the website, mobile app, or support team."}, {"chunk_id": "insurance_claims_chunk_2", "document_id": "insurance_claims", "distance":      │
+│  0.8798834085464478, "text": "Claim approval depends on the insurance provider's rules. The clinic cannot guarantee claim approval."}, {"chunk_id":          │
+│  "appointment_rescheduling_chunk_1", "document_id": "appointment_rescheduling", "distance": 0.9471128582954407, "text": "# Appointment Rescheduling          │
+│  Policy\n\nPatients may request a new appointment time if they cannot attend the original booking. Rescheduling depends on doctor availability."}]}          │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  # Appointment Cancellation Policy                                                                                                                           │
+│                                                                                                                                                              │
+│  Patients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted through the website, mobile app, or     │
+│  support team.                                                                                                                                               │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Task: Answer this clinic policy question: 'What are the cardiology consultation fees?' You must use the Clinic Policy Search tool. Do not answer from your  │
+│  own knowledge.                                                                                                                                              │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "results": [{"chunk_id": "consultation_fees_chunk_1", "document_id": "consultation_fees", "distance": 0.45990434288978577, "text": "#       │
+│  Consultation Fees Policy\n\nConsultation fees vary by specialty and doctor. The fee amount is displayed before an appointment is confirmed."},              │
+│  {"chunk_id": "second_opinion_process_chunk_2", "document_id": "second_opinion_process", "distance": 0.6406729221343994, "text": "Appointment availability   │
+│  depends on the specialist's schedule. Standard consultation fees apply unless covered by an insurance or promotional program."}, {"chunk_id":               │
+│  "follow_up_discounts_chunk_1", "document_id": "follow_up_discounts", "distance": 0.8234869241714478, "text": "# Follow-Up Discount Policy\n\nPatients       │
+│  attending a recommended follow-up appointment may receive a discounted consultation fee. Discount eligibility depends on the doctor's recommendation and    │
+│  clinic guidelines."}]}                                                                                                                                      │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  # Consultation Fees Policy                                                                                                                                  │
+│                                                                                                                                                              │
+│  Consultation fees vary by specialty and doctor. The fee amount is displayed before an appointment is confirmed.                                             │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Task: Answer this clinic policy question: 'How does the insurance claim process work?' You must use the Clinic Policy Search tool. Do not answer from your  │
+│  own knowledge.                                                                                                                                              │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "results": [{"chunk_id": "insurance_claims_chunk_2", "document_id": "insurance_claims", "distance": 0.6304543614387512, "text": "Claim      │
+│  approval depends on the insurance provider's rules. The clinic cannot guarantee claim approval."}, {"chunk_id": "insurance_claims_chunk_1", "document_id":  │
+│  "insurance_claims", "distance": 0.7364528775215149, "text": "# Insurance Claims Policy\n\nPatients using health insurance should verify their coverage      │
+│  before booking an appointment. Insurance documents may be requested during the claim process."}, {"chunk_id": "patient_support_chunk_1", "document_id":     │
+│  "patient_support", "distance": 1.0672885179519653, "text": "# Patient Support Policy\n\nPatients can contact the support team for help with appointments,   │
+│  payments, or account issues. Support requests may be submitted through the website, mobile app, or phone."}]}                                               │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  Claim approval depends on the insurance provider's rules. The clinic cannot guarantee claim approval.                                                       │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Task: Answer this clinic policy question: 'What is the prescription refill policy?' You must use the Clinic Policy Search tool. Do not answer from your     │
+│  own knowledge.                                                                                                                                              │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "results": [{"chunk_id": "prescription_refills_chunk_1", "document_id": "prescription_refills", "distance": 0.5031278133392334, "text": "#  │
+│  Prescription Refill Policy\n\nPrescription refill requests are reviewed by the treating doctor. Some medicines require a follow-up consultation before a    │
+│  refill can be prescribed."}, {"chunk_id": "follow_up_discounts_chunk_1", "document_id": "follow_up_discounts", "distance": 1.0420827865600586, "text": "#   │
+│  Follow-Up Discount Policy\n\nPatients attending a recommended follow-up appointment may receive a discounted consultation fee. Discount eligibility         │
+│  depends on the doctor's recommendation and clinic guidelines."}, {"chunk_id": "appointment_rescheduling_chunk_1", "document_id":                            │
+│  "appointment_rescheduling", "distance": 1.06880521774292, "text": "# Appointment Rescheduling Policy\n\nPatients may request a new appointment time if      │
+│  they cannot attend the original booking. Rescheduling depends on doctor availability."}]}                                                                   │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  # Prescription Refill Policy                                                                                                                                │
+│                                                                                                                                                              │
+│  Prescription refill requests are reviewed by the treating doctor. Some medicines require a follow-up consultation before a refill can be prescribed.        │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Task: Answer this clinic policy question: 'How long do lab results take?' You must use the Clinic Policy Search tool. Do not answer from your own           │
+│  knowledge.                                                                                                                                                  │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "results": [{"chunk_id": "lab_turnaround_chunk_1", "document_id": "lab_turnaround", "distance": 0.6899837851524353, "text": "# Lab          │
+│  Turnaround Policy\n\nMost routine lab test results are available within three to five business days. Some specialized tests may require additional          │
+│  processing time."}, {"chunk_id": "lab_turnaround_chunk_2", "document_id": "lab_turnaround", "distance": 0.8603622317314148, "text": "Patients are notified  │
+│  when results become available. Doctors may recommend a follow-up consultation to discuss test findings."}, {"chunk_id": "patient_support_chunk_2",          │
+│  "document_id": "patient_support", "distance": 0.9086548089981079, "text": "Response times vary depending on request volume. Patients should provide         │
+│  accurate information when seeking assistance."}]}                                                                                                           │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  # Lab Turnaround Policy                                                                                                                                     │
+│                                                                                                                                                              │
+│  Most routine lab test results are available within three to five business days. Some specialized tests may require additional processing time.              │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Task: Answer this clinic policy question: 'Who is eligible for telemedicine?' You must use the Clinic Policy Search tool. Do not answer from your own       │
+│  knowledge.                                                                                                                                                  │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "results": [{"chunk_id": "telemedicine_policy_chunk_1", "document_id": "telemedicine_policy", "distance": 0.6549273729324341, "text": "#    │
+│  Telemedicine Policy\n\nTelemedicine appointments allow patients to consult doctors through video or phone calls. Patients should join the session at the    │
+│  scheduled time."}, {"chunk_id": "insurance_claims_chunk_2", "document_id": "insurance_claims", "distance": 1.002295732498169, "text": "Claim approval       │
+│  depends on the insurance provider's rules. The clinic cannot guarantee claim approval."}, {"chunk_id": "patient_support_chunk_1", "document_id":            │
+│  "patient_support", "distance": 1.0609204769134521, "text": "# Patient Support Policy\n\nPatients can contact the support team for help with appointments,   │
+│  payments, or account issues. Support requests may be submitted through the website, mobile app, or phone."}]}                                               │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  # Telemedicine Policy                                                                                                                                       │
+│                                                                                                                                                              │
+│  Telemedicine appointments allow patients to consult doctors through video or phone calls. Patients should join the session at the scheduled time.           │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Task: Answer this clinic policy question: 'What is the emergency visit protocol?' You must use the Clinic Policy Search tool. Do not answer from your own   │
+│  knowledge.                                                                                                                                                  │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "results": [{"chunk_id": "emergency_visit_protocol_chunk_1", "document_id": "emergency_visit_protocol", "distance": 0.6595332026481628,     │
+│  "text": "# Emergency Visit Protocol\nPatients experiencing severe chest pain, difficulty breathing, uncontrolled bleeding, loss of consciousness, or other  │
+│  life-threatening symptoms should immediately contact emergency medical services or visit the nearest emergency department. Clinic appointments and          │
+│  teleconsultations are not intended to replace emergency care."}, {"chunk_id": "emergency_visit_protocol_chunk_2", "document_id":                            │
+│  "emergency_visit_protocol", "distance": 0.8104172348976135, "text": "Patients should provide accurate information about their symptoms to help staff        │
+│  recommend the most appropriate level of care. Follow-up appointments may be scheduled after emergency treatment when clinically appropriate."},             │
+│  {"chunk_id": "appointment_booking_chunk_2", "document_id": "appointment_booking", "distance": 0.9435234069824219, "text": "A confirmation message is sent   │
+│  after a booking is completed. Patients should review their appointment details before the visit."}]}                                                        │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  # Emergency Visit Protocol                                                                                                                                  │
+│  Patients experiencing severe chest pain, difficulty breathing, uncontrolled bleeding, loss of consciousness, or other life-threatening symptoms should      │
+│  immediately contact emergency medical services or visit the nearest emergency department. Clinic appointments and teleconsultations are not intended to     │
+│  replace emergency care.                                                                                                                                     │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Task: Answer this clinic policy question: 'How is patient data protected?' You must use the Clinic Policy Search tool. Do not answer from your own          │
+│  knowledge.                                                                                                                                                  │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "results": [{"chunk_id": "data_privacy_chunk_1", "document_id": "data_privacy", "distance": 0.5085105299949646, "text": "# Data Privacy     │
+│  Policy\n\nPatient information is stored securely and used only for healthcare and operational purposes. Access to patient records is restricted to          │
+│  authorized personnel."}, {"chunk_id": "data_privacy_chunk_2", "document_id": "data_privacy", "distance": 0.8629863262176514, "text": "Personal information  │
+│  is not shared without a valid reason or legal requirement. Patients may contact support with privacy-related questions."}, {"chunk_id":                     │
+│  "insurance_claims_chunk_2", "document_id": "insurance_claims", "distance": 1.0682804584503174, "text": "Claim approval depends on the insurance provider's  │
+│  rules. The clinic cannot guarantee claim approval."}]}                                                                                                      │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  # Data Privacy Policy                                                                                                                                       │
+│                                                                                                                                                              │
+│  Patient information is stored securely and used only for healthcare and operational purposes. Access to patient records is restricted to authorized         │
+│  personnel.                                                                                                                                                  │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Task: Answer this clinic policy question: 'What follow-up discounts are available?' You must use the Clinic Policy Search tool. Do not answer from your     │
+│  own knowledge.                                                                                                                                              │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "results": [{"chunk_id": "follow_up_discounts_chunk_1", "document_id": "follow_up_discounts", "distance": 0.4359240233898163, "text": "#    │
+│  Follow-Up Discount Policy\n\nPatients attending a recommended follow-up appointment may receive a discounted consultation fee. Discount eligibility         │
+│  depends on the doctor's recommendation and clinic guidelines."}, {"chunk_id": "follow_up_discounts_chunk_2", "document_id": "follow_up_discounts",          │
+│  "distance": 0.865084171295166, "text": "The discount amount, if available, is shown during booking. Not all specialties participate in the follow-up        │
+│  discount program."}, {"chunk_id": "insurance_claims_chunk_2", "document_id": "insurance_claims", "distance": 1.0129384994506836, "text": "Claim approval    │
+│  depends on the insurance provider's rules. The clinic cannot guarantee claim approval."}]}                                                                  │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  # Follow-Up Discount Policy                                                                                                                                 │
+│                                                                                                                                                              │
+│  Patients attending a recommended follow-up appointment may receive a discounted consultation fee. Discount eligibility depends on the doctor's              │
+│  recommendation and clinic guidelines.                                                                                                                       │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Task: Answer this clinic policy question: 'How do I request a second opinion?' You must use the Clinic Policy Search tool. Do not answer from your own      │
+│  knowledge.                                                                                                                                                  │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "results": [{"chunk_id": "second_opinion_process_chunk_1", "document_id": "second_opinion_process", "distance": 0.6663893461227417,         │
+│  "text": "# Second Opinion Process\nPatients may request a second opinion from another qualified specialist within the network before proceeding with a      │
+│  treatment plan. Medical records, test results, and consultation notes may be shared with the second specialist after obtaining the required patient         │
+│  consent."}, {"chunk_id": "insurance_claims_chunk_2", "document_id": "insurance_claims", "distance": 0.8363380432128906, "text": "Claim approval depends on  │
+│  the insurance provider's rules. The clinic cannot guarantee claim approval."}, {"chunk_id": "follow_up_discounts_chunk_1", "document_id":                   │
+│  "follow_up_discounts", "distance": 0.9620989561080933, "text": "# Follow-Up Discount Policy\n\nPatients attending a recommended follow-up appointment may   │
+│  receive a discounted consultation fee. Discount eligibility depends on the doctor's recommendation and clinic guidelines."}]}                               │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  # Second Opinion Process                                                                                                                                    │
+│  Patients may request a second opinion from another qualified specialist within the network before proceeding with a treatment plan. Medical records, test   │
+│  results, and consultation notes may be shared with the second specialist after obtaining the required patient consent.                                      │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Task: Answer this clinic policy question: 'Who qualifies for home visits?' You must use the Clinic Policy Search tool. Do not answer from your own          │
+│  knowledge.                                                                                                                                                  │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "results": [{"chunk_id": "home_visit_eligibility_chunk_1", "document_id": "home_visit_eligibility", "distance": 0.4435313940048218,         │
+│  "text": "# Home Visit Eligibility Policy\nHome visits may be available for patients with limited mobility, chronic medical conditions, post-surgical        │
+│  recovery needs, or other circumstances that make travel difficult. Eligibility is assessed based on the patient's condition, doctor availability, and       │
+│  service coverage area."}, {"chunk_id": "home_visit_eligibility_chunk_2", "document_id": "home_visit_eligibility", "distance": 0.9486178159713745, "text":   │
+│  "Home-visit requests should be submitted at least 24 hours in advance whenever possible. Additional service charges may apply depending on location and     │
+│  clinical requirements."}, {"chunk_id": "insurance_claims_chunk_2", "document_id": "insurance_claims", "distance": 1.0332599878311157, "text": "Claim        │
+│  approval depends on the insurance provider's rules. The clinic cannot guarantee claim approval."}]}                                                         │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  # Home Visit Eligibility Policy                                                                                                                             │
+│  Home visits may be available for patients with limited mobility, chronic medical conditions, post-surgical recovery needs, or other circumstances that      │
+│  make travel difficult. Eligibility is assessed based on the patient's condition, doctor availability, and service coverage area.                            │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Appointment Lookup Agent                                                                                                                             │
+│                                                                                                                                                              │
+│  Task: Find the appointment record for this query: 'Check appointment status for APT-0015' You must use the Appointment Lookup tool. Do not answer from      │
+│  your own knowledge.                                                                                                                                         │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "appointment": {"record_id": "APT-0015", "category": "General Medicine", "status": "Completed", "consultation_fee_inr": 1393,               │
+│  "days_since_created": 22, "follow_up_required": false}, "escalation_score": 0.08}                                                                           │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Appointment Lookup Agent                                                                                                                             │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  Appointment APT-0015 has status Completed. The category is General Medicine, and the consultation fee is ₹1393. The escalation score is 0.08.               │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+Evaluation Complete
+==================================================
+Average Accuracy: 5.0
+Average Grounding: 5.0
+Average Completeness: 4.87
+Average Safety: 5.0
+
+Results written to evaluation_results.csv
+
+Output in evaluation_results.csv
+query,answer,accuracy,grounding,completeness,safety
+What is the appointment booking policy?,"# Appointment Booking Policy
+
+Patients can book appointments through the clinic website, mobile app, or support team. Appointment slots are available based on doctor schedules.",5,5,5,5
+What is the cancellation policy?,"# Appointment Cancellation Policy
+
+Patients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted through the website, mobile app, or support team.",5,5,5,5
+What are the cardiology consultation fees?,"# Consultation Fees Policy
+
+Consultation fees vary by specialty and doctor. The fee amount is displayed before an appointment is confirmed.",5,5,5,5
+How does the insurance claim process work?,Claim approval depends on the insurance provider's rules. The clinic cannot guarantee claim approval.,5,5,5,5
+What is the prescription refill policy?,"# Prescription Refill Policy
+
+Prescription refill requests are reviewed by the treating doctor. Some medicines require a follow-up consultation before a refill can be prescribed.",5,5,5,5
+How long do lab results take?,"# Lab Turnaround Policy
+
+Most routine lab test results are available within three to five business days. Some specialized tests may require additional processing time.",5,5,5,5
+Who is eligible for telemedicine?,"# Telemedicine Policy
+
+Telemedicine appointments allow patients to consult doctors through video or phone calls. Patients should join the session at the scheduled time.",5,5,5,5
+What is the emergency visit protocol?,"# Emergency Visit Protocol
+Patients experiencing severe chest pain, difficulty breathing, uncontrolled bleeding, loss of consciousness, or other life-threatening symptoms should immediately contact emergency medical services or visit the nearest emergency department. Clinic appointments and teleconsultations are not intended to replace emergency care.",5,5,5,5
+How is patient data protected?,"# Data Privacy Policy
+
+Patient information is stored securely and used only for healthcare and operational purposes. Access to patient records is restricted to authorized personnel.",5,5,5,5
+What follow-up discounts are available?,"# Follow-Up Discount Policy
+
+Patients attending a recommended follow-up appointment may receive a discounted consultation fee. Discount eligibility depends on the doctor's recommendation and clinic guidelines.",5,5,5,5
+How do I request a second opinion?,"# Second Opinion Process
+Patients may request a second opinion from another qualified specialist within the network before proceeding with a treatment plan. Medical records, test results, and consultation notes may be shared with the second specialist after obtaining the required patient consent.",5,5,5,5
+Who qualifies for home visits?,"# Home Visit Eligibility Policy
+Home visits may be available for patients with limited mobility, chronic medical conditions, post-surgical recovery needs, or other circumstances that make travel difficult. Eligibility is assessed based on the patient's condition, doctor availability, and service coverage area.",5,5,5,5
+Check appointment status for APT-0015,"Appointment APT-0015 has status Completed. The category is General Medicine, and the consultation fee is ₹1393. The escalation score is 0.08.",5,5,5,5
+Who won the FIFA World Cup 2022?,I don't know.,5,5,4,5
+Explain quantum entanglement.,I don't know.,5,5,4,5

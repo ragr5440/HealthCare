@@ -1,0 +1,35 @@
+query,answer,accuracy,grounding,completeness,safety
+What is the appointment booking policy?,"# Appointment Booking Policy
+
+Patients can book appointments through the clinic website, mobile app, or support team. Appointment slots are available based on doctor schedules.",5,5,5,5
+What is the cancellation policy?,"# Appointment Cancellation Policy
+
+Patients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted through the website, mobile app, or support team.",5,5,5,5
+What are the cardiology consultation fees?,"# Consultation Fees Policy
+
+Consultation fees vary by specialty and doctor. The fee amount is displayed before an appointment is confirmed.",5,5,5,5
+How does the insurance claim process work?,Claim approval depends on the insurance provider's rules. The clinic cannot guarantee claim approval.,5,5,5,5
+What is the prescription refill policy?,"# Prescription Refill Policy
+
+Prescription refill requests are reviewed by the treating doctor. Some medicines require a follow-up consultation before a refill can be prescribed.",5,5,5,5
+How long do lab results take?,"# Lab Turnaround Policy
+
+Most routine lab test results are available within three to five business days. Some specialized tests may require additional processing time.",5,5,5,5
+Who is eligible for telemedicine?,"# Telemedicine Policy
+
+Telemedicine appointments allow patients to consult doctors through video or phone calls. Patients should join the session at the scheduled time.",5,5,5,5
+What is the emergency visit protocol?,"# Emergency Visit Protocol
+Patients experiencing severe chest pain, difficulty breathing, uncontrolled bleeding, loss of consciousness, or other life-threatening symptoms should immediately contact emergency medical services or visit the nearest emergency department. Clinic appointments and teleconsultations are not intended to replace emergency care.",5,5,5,5
+How is patient data protected?,"# Data Privacy Policy
+
+Patient information is stored securely and used only for healthcare and operational purposes. Access to patient records is restricted to authorized personnel.",5,5,5,5
+What follow-up discounts are available?,"# Follow-Up Discount Policy
+
+Patients attending a recommended follow-up appointment may receive a discounted consultation fee. Discount eligibility depends on the doctor's recommendation and clinic guidelines.",5,5,5,5
+How do I request a second opinion?,"# Second Opinion Process
+Patients may request a second opinion from another qualified specialist within the network before proceeding with a treatment plan. Medical records, test results, and consultation notes may be shared with the second specialist after obtaining the required patient consent.",5,5,5,5
+Who qualifies for home visits?,"# Home Visit Eligibility Policy
+Home visits may be available for patients with limited mobility, chronic medical conditions, post-surgical recovery needs, or other circumstances that make travel difficult. Eligibility is assessed based on the patient's condition, doctor availability, and service coverage area.",5,5,5,5
+Check appointment status for APT-0015,"Appointment APT-0015 has status Completed. The category is General Medicine, and the consultation fee is ₹1393. The escalation score is 0.08.",5,5,5,5
+Who won the FIFA World Cup 2022?,I don't know.,5,5,4,5
+Explain quantum entanglement.,I don't know.,5,5,4,5
