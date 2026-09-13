@@ -27,6 +27,7 @@ from src.crew.full_crew_runner import run_full_crew
 from src.rag.chunking import build_sentence_chunks, sentence_chunk
 from src.rag.indexing import add_chunks_to_collection
 from src.rag.retrieval import MODEL, get_collection
+from src.schemas.response_validator import validate_response
 
 app = FastAPI(
     title="Practo Support Agent"
@@ -81,6 +82,19 @@ async def ask_question(
         draft_answer=crew_result[
             "draft_answer"
         ],
+    )
+
+    validated_response = validate_response(
+        {
+            "answer": verdict.final_answer,
+            "source": (
+                "appointment_lookup"
+                if "APT-" in request.query.upper()
+                else "knowledge_base"
+            ),
+            "confidence": 0.95,
+            "requires_escalation": False,
+        }
     )
 
     latency_ms = (
@@ -181,8 +195,23 @@ async def chat_endpoint(
                 message
             )
 
+
+            validated_response = validate_response(
+                {
+                    "answer": verdict.final_answer,
+                    "source": (
+                        "appointment_lookup"
+                        if "APT-" in masked_message.upper()
+                        else "knowledge_base"
+                    ),
+                    "confidence": 0.95,
+                    "requires_escalation": False,
+                }
+        )
+
             if not budget_check["allowed"]:
                 await websocket.send_json(
+                    validated_response.model_dump()
                     {
                         "error": budget_check["error"],
                         "estimated_tokens": budget_check[
