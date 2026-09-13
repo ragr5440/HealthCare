@@ -7,7 +7,7 @@ from crewai import Crew, Task, Process
 
 from src.crew.agents import create_agents
 
-def run_policy_query(
+async def run_policy_query(
     query: str,
 ):
 
@@ -38,12 +38,12 @@ def run_policy_query(
         verbose=False,
     )
 
-    result = crew.kickoff()
+    result = await crew.kickoff_async()
 
     return str(result)
 
 
-def run_lookup_query(
+async def run_lookup_query(
     query: str,
 ):
 
@@ -74,6 +74,6 @@ def run_lookup_query(
         verbose=False,
     )
 
-    result = crew.kickoff()
+    result = await crew.kickoff_async()
 
     return str(result)

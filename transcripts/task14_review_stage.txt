@@ -1,31 +1,153 @@
-# AutoGen Review Stage
+🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Appointment Lookup Agent                                                                                                                             │
+│                                                                                                                                                              │
+│  Task: Find the appointment record for this query: 'Check appointment status for APT-0015' You must use the Appointment Lookup tool. Do not answer from      │
+│  your own knowledge.                                                                                                                                         │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
-## Approval Test
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "appointment": {"record_id": "APT-0015", "category": "General Medicine", "status": "Completed", "consultation_fee_inr": 1393,               │
+│  "days_since_created": 22, "follow_up_required": false}, "escalation_score": 0.08}                                                                           │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
-Context:
-Patients may cancel appointments up to 24 hours before the appointment.
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Appointment Lookup Agent                                                                                                                             │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  Appointment APT-0015 has status Completed. The category is General Medicine, and the consultation fee is ₹1393. The escalation score is 0.08.               │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
-Draft:
-Patients may cancel appointments up to 24 hours before the appointment.
 
-Verdict:
-approved=True
+APPROVAL TEST
+============================================================
+Original query:
+Check appointment status for APT-0015
 
-Reason:
-Answer is supported by retrieved context.
+Retrieved context:
+Appointment APT-0015 has status Completed. The category is General Medicine, and the consultation fee is ₹1393. The escalation score is 0.08.
 
----
+CrewAI draft:
+Appointment APT-0015 has status Completed. The category is General Medicine, and the consultation fee is ₹1393. The escalation score is 0.08.
 
-## Revision Test
+AUTOGEN TEAM MESSAGES
+------------------------------------------------------------
+Source: user
+Content: Review the CrewAI draft answer using only the original retrieved context.
 
-Context:
-Patients may cancel appointments up to 24 hours before the appointment.
+ORIGINAL USER QUERY:
+Check appointment status for APT-0015
 
-Draft:
-Patients receive free MRI scans.
+ORIGINAL RETRIEVED CONTEXT:
+Appointment APT-0015 has status Completed. The category is General Medicine, and the consultation fee is ₹1393. The escalation score is 0.08.
 
-Verdict:
-approved=False
+CREWAI COMPOSER DRAFT:
+Appointment APT-0015 has status Completed. The category is General Medicine, and the consultation fee is ₹1393. The escalation score is 0.08.
 
-Reason:
-Unsupported content removed.
+The Policy Compliance Reviewer must review the draft first. The Final Editor must then approve the draft unchanged or revise it and return a structured VerdictModel.
+------------------------------------------------------------
+Source: policy_compliance_reviewer
+Content: APPROVE. The CrewAI draft is fully supported by the retrieved context and should remain unchanged.
+------------------------------------------------------------
+Source: final_editor
+Content: approved=True final_answer='Appointment APT-0015 has status Completed. The category is General Medicine, and the consultation fee is ₹1393. The escalation score is 0.08.' reason='The draft answer is fully supported by the retrieved context.'
+------------------------------------------------------------
+
+STRUCTURED VERDICT
+{
+  "approved": true,
+  "final_answer": "Appointment APT-0015 has status Completed. The category is General Medicine, and the consultation fee is ₹1393. The escalation score is 0.08.",
+  "reason": "The draft answer is fully supported by the retrieved context."
+}
+
+PASS: Draft approved unchanged.
+╭────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Task: Answer this clinic policy question: 'What is the cancellation policy?' You must use the Clinic Policy Search tool. Do not answer from your own        │
+│  knowledge.                                                                                                                                                  │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "results": [{"chunk_id": "appointment_cancellation_chunk_1", "document_id": "appointment_cancellation", "distance": 0.6520476341247559,     │
+│  "text": "# Appointment Cancellation Policy\n\nPatients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be     │
+│  submitted through the website, mobile app, or support team."}, {"chunk_id": "insurance_claims_chunk_2", "document_id": "insurance_claims", "distance":      │
+│  0.8798834085464478, "text": "Claim approval depends on the insurance provider's rules. The clinic cannot guarantee claim approval."}, {"chunk_id":          │
+│  "appointment_rescheduling_chunk_1", "document_id": "appointment_rescheduling", "distance": 0.9471128582954407, "text": "# Appointment Rescheduling          │
+│  Policy\n\nPatients may request a new appointment time if they cannot attend the original booking. Rescheduling depends on doctor availability."}]}          │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  # Appointment Cancellation Policy                                                                                                                           │
+│                                                                                                                                                              │
+│  Patients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted through the website, mobile app, or     │
+│  support team.                                                                                                                                               │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+REVISION TEST
+============================================================
+Original query:
+What is the cancellation policy?
+
+Retrieved context:
+# Appointment Cancellation Policy
+
+Patients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted through the website, mobile app, or supportteam.
+
+Deliberately modified draft:
+# Appointment Cancellation Policy
+
+Patients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted through the website, mobile app, or supportteam. Patients also receive free MRI scans.
+
+AUTOGEN TEAM MESSAGES
+------------------------------------------------------------
+Source: user
+Content: Review the CrewAI draft answer using only the original retrieved context.
+
+ORIGINAL USER QUERY:
+What is the cancellation policy?
+
+ORIGINAL RETRIEVED CONTEXT:
+# Appointment Cancellation Policy
+
+Patients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted through the website, mobile app, or supportteam.
+
+CREWAI COMPOSER DRAFT:
+# Appointment Cancellation Policy
+
+Patients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted through the website, mobile app, or supportteam. Patients also receive free MRI scans.
+
+The Policy Compliance Reviewer must review the draft first. The Final Editor must then approve the draft unchanged or revise it and return a structured VerdictModel.
+------------------------------------------------------------
+Source: policy_compliance_reviewer
+Content: REVISE. The CrewAI draft contains one or more claims that are not supported by the retrieved context.
+------------------------------------------------------------
+Source: final_editor
+Content: approved=False final_answer='I cannot verify this information from the available clinic policies.' reason='The draft contained unsupported content, sothe unsupported claim was removed.'
+------------------------------------------------------------
+
+STRUCTURED VERDICT
+{
+  "approved": false,
+  "final_answer": "I cannot verify this information from the available clinic policies.",
+  "reason": "The draft contained unsupported content, so the unsupported claim was removed."
+}
+
+PASS: Unsupported claim detected and removed.
