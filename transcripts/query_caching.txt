@@ -1,0 +1,62 @@
+Input Query
+What is the cancellation policy? 
+
+Output
+
+FIRST REQUEST
+==================================================
+CACHE MISS
+╭────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Task: Answer this clinic policy question: 'What is the cancellation policy?' You must use the Clinic Policy Search tool. Do not answer from your own        │
+│  knowledge.                                                                                                                                                  │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "results": [{"chunk_id": "appointment_cancellation_chunk_1", "document_id": "appointment_cancellation", "distance": 0.6520476341247559,     │
+│  "text": "# Appointment Cancellation Policy\n\nPatients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be     │
+│  submitted through the website, mobile app, or support team."}, {"chunk_id": "insurance_claims_chunk_2", "document_id": "insurance_claims", "distance":      │
+│  0.8798834085464478, "text": "Claim approval depends on the insurance provider's rules. The clinic cannot guarantee claim approval."}, {"chunk_id":          │
+│  "appointment_rescheduling_chunk_1", "document_id": "appointment_rescheduling", "distance": 0.9471128582954407, "text": "# Appointment Rescheduling          │
+│  Policy\n\nPatients may request a new appointment time if they cannot attend the original booking. Rescheduling depends on doctor availability."}]}          │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Clinic Policy Retrieval Agent                                                                                                                        │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  # Appointment Cancellation Policy                                                                                                                           │
+│                                                                                                                                                              │
+│  Patients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted through the website, mobile app, or     │
+│  support team.                                                                                                                                               │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+Answer:
+# Appointment Cancellation Policy
+
+Patients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted through the website, mobile app, or supportteam.
+
+Retrieval Calls: 1
+
+SECOND REQUEST
+==================================================
+CACHE HIT
+
+Answer:
+# Appointment Cancellation Policy
+
+Patients may cancel an appointment up to 24 hours before the scheduled time. Cancellation requests can be submitted through the website, mobile app, or supportteam.
+
+Retrieval Calls: 1
+
+
+For the first request, the retrieval workflow executed with the output. The second reqeust was completed from the cache instead of the full workflow.
