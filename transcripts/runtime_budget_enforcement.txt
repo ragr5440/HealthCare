@@ -1,0 +1,8 @@
+Source File: src/governance/runtime_budget.py
+
+Max query length: 2000
+
+query = "hello" * 5000
+
+Output: 
+{'allowed': False, 'error': 'Budget exceeded'}

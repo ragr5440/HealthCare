@@ -15,6 +15,7 @@ from src.api.models import (
 
 from src.api.logger import log_request
 from src.governance.pii_guardrails import mask_contact_numbers
+from src.governance.runtime_budget import validate_budget
 
 app = FastAPI(
     title="Practo Support Agent"
@@ -33,7 +34,17 @@ def root():
 def ask_question(
     request: AskRequest
 ):
-    start_time = time.time()
+    budget_check = validate_budget(
+        request.query
+    )
+
+    if not budget_check["allowed"]:
+
+        return {
+            "error": budget_check["error"]
+        }
+
+   start_time = time.time()
 
     masked_query = mask_contact_numbers(request.query)
 

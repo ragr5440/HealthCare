@@ -1,0 +1,31 @@
+# AutoGen Review Stage
+
+## Approval Test
+
+Context:
+Patients may cancel appointments up to 24 hours before the appointment.
+
+Draft:
+Patients may cancel appointments up to 24 hours before the appointment.
+
+Verdict:
+approved=True
+
+Reason:
+Answer is supported by retrieved context.
+
+---
+
+## Revision Test
+
+Context:
+Patients may cancel appointments up to 24 hours before the appointment.
+
+Draft:
+Patients receive free MRI scans.
+
+Verdict:
+approved=False
+
+Reason:
+Unsupported content removed.

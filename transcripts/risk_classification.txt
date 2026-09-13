@@ -1,0 +1,12 @@
+AI Governance Risk Classification
+Risk Category: HIGH RISK / CONFIDENTIAL
+
+Reasoning:
+
+This healthcare support system handles patient-related queries, appointment records, clinic policies, and potentially sensitive personal information.
+
+The system operates within a healthcare domain where incorrect responses could affect patient decisions, appointment management, and healthcare interactions.
+
+The appointment lookup functionality accesses structured patient-related records, creating privacy and security considerations.
+
+For these reasons the system is classified as HIGH RISK / CONFIDENTIAL
