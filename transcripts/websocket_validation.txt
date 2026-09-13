@@ -17,3 +17,37 @@ Client disconnected.
 
 Result
 PASS
+
+INPUT
+Check appointment status for APT-0015
+
+Output (on uvicorn terminal)
+
+
+🤖 Agent Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Appointment Lookup Agent                                                                                                                             │
+│                                                                                                                                                              │
+│  Task: Find the appointment record for this query: 'Check appointment status for APT-0015' You must use the Appointment Lookup tool. Do not answer from      │
+│  your own knowledge.                                                                                                                                         │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────── Tool Output ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  {"found": true, "appointment": {"record_id": "APT-0015", "category": "General Medicine", "status": "Completed", "consultation_fee_inr": 1393,               │
+│  "days_since_created": 22, "follow_up_required": false}, "escalation_score": 0.08}                                                                           │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[Finalize] todos_count=0, todos_with_results=0
+╭─────────────────────────────────────────────────────────────────── ✅ Agent Final Answer ────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                              │
+│  Agent: Appointment Lookup Agent                                                                                                                             │
+│                                                                                                                                                              │
+│  Final Answer:                                                                                                                                               │
+│  Appointment APT-0015 has status Completed. The category is General Medicine, and the consultation fee is ₹1393. The escalation score is 0.08.               │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Client disconnected safely.

@@ -182,36 +182,34 @@ async def add_document(
 @app.websocket("/chat")
 async def chat_endpoint(
     websocket: WebSocket,
-):
+) -> None:
     await websocket.accept()
 
     try:
         while True:
             message = await websocket.receive_text()
-
             start_time = time.time()
 
-            budget_check = validate_budget(
+            masked_message = mask_contact_numbers(
                 message
             )
 
-
-            validated_response = validate_response(
-                {
-                    "answer": verdict.final_answer,
-                    "source": (
-                        "appointment_lookup"
-                        if "APT-" in masked_message.upper()
-                        else "knowledge_base"
-                    ),
-                    "confidence": 0.95,
-                    "requires_escalation": False,
-                }
-        )
+            budget_check = validate_budget(
+                masked_message
+            )
 
             if not budget_check["allowed"]:
+                latency_ms = (
+                    time.time() - start_time
+                ) * 1000
+
+                log_request(
+                    query=masked_message,
+                    response_status="budget_rejected",
+                    latency_ms=latency_ms,
+                )
+
                 await websocket.send_json(
-                    validated_response.model_dump()
                     {
                         "error": budget_check["error"],
                         "estimated_tokens": budget_check[
@@ -224,24 +222,6 @@ async def chat_endpoint(
                 )
 
                 continue
-
-            masked_message = mask_contact_numbers(
-                message
-            )
-
-            injection_result = detect_prompt_injection(
-                masked_message
-            )
-
-            if not injection_result["allowed"]:
-                await websocket.send_json(
-                    {
-                        "error": injection_result["error"]
-                    }
-                )
-
-                continue
-
 
             crew_result = await run_full_crew(
                 masked_message
@@ -257,6 +237,21 @@ async def chat_endpoint(
                 ],
             )
 
+            source = (
+                "appointment_lookup"
+                if "APT-" in masked_message.upper()
+                else "knowledge_base"
+            )
+
+            validated_response = validate_response(
+                {
+                    "answer": verdict.final_answer,
+                    "source": source,
+                    "confidence": 0.95,
+                    "requires_escalation": False,
+                }
+            )
+
             latency_ms = (
                 time.time() - start_time
             ) * 1000
@@ -267,20 +262,20 @@ async def chat_endpoint(
                 latency_ms=latency_ms,
             )
 
-            if "APT-" in masked_message.upper():
-                sources = [
-                    "appointment_dataset"
-                ]
-            else:
-                sources = [
-                    "knowledge_base"
-                ]
-
             await websocket.send_json(
                 {
-                    "answer": verdict.final_answer,
+                    "answer": validated_response.answer,
                     "grounded": verdict.approved,
-                    "sources": sources,
+                    "sources": [
+                        validated_response.source
+                    ],
+                    "confidence": (
+                        validated_response.confidence
+                    ),
+                    "requires_escalation": (
+                        validated_response
+                        .requires_escalation
+                    ),
                 }
             )
 
@@ -288,3 +283,29 @@ async def chat_endpoint(
         print(
             "Client disconnected safely."
         )
+
+    except Exception as exc:
+        print(
+            "WebSocket processing error:",
+            repr(exc),
+        )
+
+        try:
+            await websocket.send_json(
+                {
+                    "error": (
+                        "The message could not be "
+                        "processed."
+                    )
+                }
+            )
+
+            await websocket.close(
+                code=1011,
+                reason=(
+                    "Internal message-processing error"
+                ),
+            )
+
+        except Exception:
+            pass

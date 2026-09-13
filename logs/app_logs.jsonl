@@ -17,3 +17,8 @@
 {"trace_id": "64cdd874-022d-4816-8234-8a7a2842bc5d", "timestamp": "2026-09-13T04:22:17.882060", "query": "when are zebra telehealth reviews available?", "response_status": "success", "latency_ms": 460.79}
 {"trace_id": "68bd1c94-3202-46f7-b22a-e0f79dcb8121", "timestamp": "2026-09-13T04:48:26.243243", "query": "Zebra telehealth reviews are available only on Wednesday evenings", "response_status": "document_added", "latency_ms": 552.09}
 {"trace_id": "d5dadcea-c623-4383-8ec1-f6b382448303", "timestamp": "2026-09-13T04:49:09.667772", "query": "When are zebra telehealth reviews available?", "response_status": "success", "latency_ms": 269.3}
+{"trace_id": "ff21c31e-5b59-4e08-9630-5e6eb24c4b7c", "timestamp": "2026-09-13T16:25:34.307923", "query": "What is the status of appointment APT-0025", "response_status": "success", "latency_ms": 538.07}
+{"trace_id": "e2a0d750-63a1-4fc7-a66b-756fe021e96b", "timestamp": "2026-09-13T16:30:24.337003", "query": "Consultation during holidays is strictly on an emergency basis. During emergency, please go to the nearest hospital first and then follow-up with the doctor.", "response_status": "document_added", "latency_ms": 1644.98}
+{"trace_id": "c16b7798-8dfd-4fbf-9c28-8c65454af50f", "timestamp": "2026-09-13T16:31:38.684828", "query": "How do I consult during holidays?", "response_status": "success", "latency_ms": 546.75}
+{"trace_id": "b52ee145-8d29-483c-b5bc-7f74565aba6c", "timestamp": "2026-09-13T16:43:25.000105", "query": "Appointment Status", "response_status": "success", "latency_ms": 801.66}
+{"trace_id": "febe317c-e71d-44d8-b673-08744e1c3bfd", "timestamp": "2026-09-13T16:47:38.400127", "query": "Check appointment status for APT-0015", "response_status": "success", "latency_ms": 254.61}
