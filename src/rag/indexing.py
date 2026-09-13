@@ -41,7 +41,7 @@ def add_chunks_to_collection(
         for chunk in chunks
     ]
 
-    collection.add(
+    collection.upsert(
         ids=ids,
         embeddings=embeddings,
         documents=texts,

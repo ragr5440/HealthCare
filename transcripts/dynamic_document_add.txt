@@ -1,0 +1,38 @@
+# Dynamic Document Addition Test
+
+POST /add-document
+
+Input:
+
+{
+  "doc_id": "zebra_policy_100",
+  "text": "Zebra telehealth reviews are available only on Wednesday evenings."
+}
+
+Output:
+
+{
+  "message": "Document zebra_policy_100 added with 1 chunks"
+}
+
+---
+
+POST /ask
+
+Query:
+
+When are zebra telehealth reviews available?
+
+Answer:
+
+Zebra telehealth reviews are available only on Wednesday evenings.
+
+---
+
+Result
+
+PASS
+
+The newly added policy was indexed into the
+active ChromaDB collection and subsequently
+retrieved through the policy search workflow.

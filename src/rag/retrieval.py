@@ -80,6 +80,9 @@ def retrieve(
         "results": []
         }
 
+    print("Threshold:", SIMILARITY_THRESHOLD)
+    print("best result:", best_result)
+
     return {
         "in_scope": True,
         "results": formatted_results
@@ -131,7 +134,7 @@ def main():
     results = retrieve(
         query=query,
         collection_name=
-        "clinic_fixed_chunks",
+        "clinic_sentence_chunks",
         top_k=3,
     )
 
