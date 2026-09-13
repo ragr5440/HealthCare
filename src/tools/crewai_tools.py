@@ -23,9 +23,6 @@ def clinic_policy_search(query: str) -> str:
         top_k=3,
     )
 
-    print("\n DEBUG Retireval")
-    print(response)
-
     if not response["in_scope"]:
         output = {
             "found": False,

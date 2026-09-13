@@ -1,3 +1,5 @@
+import asyncio
+
 from src.cache.query_cache import (
     get_cached_answer,
     store_cached_answer,
@@ -10,7 +12,7 @@ from src.crew.runner import (
 )
 
 
-def process_query(
+async def process_query(
     query: str,
 ):
 
@@ -28,7 +30,7 @@ def process_query(
 
     increment_retrieval_count()
 
-    answer = run_policy_query(
+    answer = await run_policy_query(
         query
     )
 
@@ -40,7 +42,7 @@ def process_query(
     return answer
 
 
-def main():
+async def main():
 
     query = (
         "What is the cancellation policy?"
@@ -49,7 +51,7 @@ def main():
     print("\nFIRST REQUEST")
     print("=" * 50)
 
-    answer_1 = process_query(
+    answer_1 = await process_query(
         query
     )
 
@@ -64,7 +66,7 @@ def main():
     print("\nSECOND REQUEST")
     print("=" * 50)
 
-    answer_2 = process_query(
+    answer_2 = await process_query(
         query
     )
 
@@ -78,4 +80,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

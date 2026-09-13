@@ -80,9 +80,6 @@ def retrieve(
         "results": []
         }
 
-    print("Threshold:", SIMILARITY_THRESHOLD)
-    print("best result:", best_result)
-
     return {
         "in_scope": True,
         "results": formatted_results

@@ -1,3 +1,4 @@
+import asyncio
 import csv
 
 from src.evaluation.judge import MockJudge
@@ -5,20 +6,20 @@ from src.evaluation.test_queries import TEST_QUERIES
 from src.crew.runner import run_policy_query, run_lookup_query
 
 
-def get_answer(
+async def get_answer(
     query_type,
     query,
 ):
    
     if query_type == "policy":
-        return run_policy_query(query)
+        return await run_policy_query(query)
 
     if query_type == "appointment":
-        return run_lookup_query(query)
+        return await run_lookup_query(query)
 
     return "I don't know."
 
-def main():
+async def main():
 
     judge = MockJudge()
 
@@ -33,7 +34,7 @@ def main():
 
         query = item["query"]
 
-        answer = get_answer(
+        answer = await get_answer(
             item["type"],
             query,
         )
@@ -41,6 +42,7 @@ def main():
         scores = judge.evaluate(
             query=query,
             answer=answer,
+            expected_keywords=item["expected_keywords"],
         )
 
         row = {
@@ -129,4 +131,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
