@@ -41,7 +41,9 @@ def ask_question(
     if not budget_check["allowed"]:
 
         return {
-            "error": budget_check["error"]
+            "error": budget_check["error"],
+            "estimated_tokens": budget_check["estimated_tokens"],
+            "token_budget": budget_check["token_budget"],
         }
 
    start_time = time.time()
@@ -88,6 +90,13 @@ async def chat_endpoint(
 ):
 
     await websocket.accept()
+
+    budget_check = validate_budget(message)
+
+    if not budget_check["allowed"]:
+        await websocket.send_text(
+            "Per-request token budget exceeded. "
+        )
 
     try:
 

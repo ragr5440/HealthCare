@@ -1,8 +1,10 @@
 Source File: src/governance/runtime_budget.py
 
-Max query length: 2000
+Max tokens: 500
 
-query = "hello" * 5000
+query = "hello " * 1000
 
 Output: 
-{'allowed': False, 'error': 'Budget exceeded'}
+TOKEN BUDGET TEST
+==================================================
+{'allowed': False, 'estimated_tokens': 1000, 'token_budget': 500, 'error': 'Per-request token budget exceeded.'}

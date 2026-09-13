@@ -2,10 +2,22 @@ from src.governance.runtime_budget import (
     validate_budget,
 )
 
-query = "hello " * 5000
 
-result = validate_budget(
-    query
-)
+def main():
 
-print(result)
+    oversized_query = (
+        "hello " * 1000
+    )
+
+    result = validate_budget(
+        oversized_query
+    )
+
+    print("\nTOKEN BUDGET TEST")
+    print("=" * 50)
+
+    print(result)
+
+
+if __name__ == "__main__":
+    main()
